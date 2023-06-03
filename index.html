@@ -98,6 +98,18 @@
             font-weight: 900;
             cursor: pointer;
         }
+        .img img{
+            display:flex;
+            margin: auto;
+            opacity: 1;
+            width: 620px;
+            padding: 30px;
+            margin: auto;
+        }
+        h6{
+            text-align: center;
+            font-size: 2rem;
+        }
         /* Media Query */
 
         @media screen and (max-width:400px){
@@ -135,7 +147,19 @@
             padding:8px;
             font-size: 1.5rem;
         }
-        
+        .img img{
+            display:flex;
+            margin: auto;
+            opacity: 1;
+            width:380px;
+            padding: 10px;
+            margin: auto;
+        }
+        h6{
+            color: rgb(255, 174, 0);
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
         }
 
     </style>
@@ -163,6 +187,11 @@
                 <div onclick="Del(event)"><span>X</span></div>
             </li>
          </ul>
+          <div class="img">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-state-concept-3428212-2902554.png"
+            alt="Not found">
+        <h6>Order your food here.</h6>
+        </div>
     </div>
    </section> 
 

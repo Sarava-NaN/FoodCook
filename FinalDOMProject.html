@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:#C8D5B9;
+        }
+        header{
+            background-color:#696D7D;
+            padding: 20px;
+            text-align:center;
+            color:#FAF3DD;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1{
+            transition:transform 1s ease-in-out;
+        }
+        h1:hover{
+            transform: scale(1.03);
+        }
+         .main_container{
+            width: 620px;
+            padding: 30px;
+            margin: auto;
+            margin-top: 30px;
+            background-color:#3F4739;
+            border-radius: 12px;
+        }
+        .d-flex{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .input-div input{
+            width:480px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            outline: none;
+            padding: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+        .btn-div button{
+            margin-left: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            outline: none;
+            padding: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .section_container{
+            width: 620px;
+            padding: 30px;
+            margin: auto;
+            margin-top: 30px;
+            background-color:#3F4739;
+            min-height: fit-content;
+            border-radius: 12px;
+        }
+        .lists{
+            list-style-type: none;
+            width: 100%;
+        }
+        .lists li{
+            border: 2px solid gray;
+            padding:8px;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            color: #FAF3DD;
+            font-size: 2rem;
+            cursor: pointer;
+            display:flex;
+            text-transform: capitalize;
+            justify-content: space-between;
+            transition:background-color 1s ease-in-out;
+        }
+        .lists li:hover{
+            background-color: #9A8C98; 
+        }
+
+        .lists span{
+            color: #F71735;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        /* Media Query */
+
+        @media screen and (max-width:400px){
+            header{
+            padding:22px;
+           }
+        h1{
+            font-size: 24px;
+            text-shadow:6px 5px 5px rgba(0,0,0,0.9);
+            transition:transform 1s ease-in-out;
+        }
+        h1:hover{
+            transform: scale(1.03);
+        }
+         .main_container{
+            width:fit-content;
+            padding:20px;
+            margin-top:50px;
+        }
+        .input-div input{
+            width:240px;
+            padding: 14px;
+        }
+        .btn-div button{
+            background-color: blue;
+            color: #FAF3DD;
+        }
+        .section_container{
+            width:380px;
+            padding: 20px;
+            margin-top:14px;
+        }
+        .lists li{
+            border: 2px solid rgb(255, 241, 241);
+            padding:8px;
+            font-size: 1.5rem;
+        }
+        
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+        <h1>🍊FoodCook Planner</h1>
+        </div>
+    </header>
+    <main class="main_container">
+        <div class="d-flex">
+           <div class="input-div"><input type="text" placeholder="I like to eat" id="input" required></div>
+            <div class="btn-div"><button id="btn">SAVE</button></div>
+        </div>
+    </main>
+   <section class="section_container">
+    <div>
+         <ul class="lists" id="lists">
+             <li>Sambar<div onclick="Del(event)"><span>X</span></div></li>
+             <li>Rasam
+                <div onclick="Del(event)"><span>X</span></div>
+                </li>
+             <li>Biriyani 
+                <div onclick="Del(event)"><span>X</span></div>
+            </li>
+         </ul>
+    </div>
+   </section> 
+
+   <script>
+    // Search-input-Js-code;
+    const inputEl=document.querySelector("#input");
+    const BtnEl=document.querySelector("#btn");
+    const listEl=document.querySelector("#lists");
+
+    BtnEl.addEventListener("click",()=>{
+          listEl.innerHTML +=`<ul><li>${inputEl.value}<div onclick="Del(event)"><span>X</span></div></li></ul>`
+          inputEl.value="";
+          
+    });
+    // inputEl.addEventListener("change",(event)=>{
+    //     listEl.innerHTML +=`<ul><li>${event.target.value} <span>X</span></li></ul>`
+    // })
+
+    // removing span-button
+    function Del(event){
+            let del=event.target.parentNode.parentNode;
+            del.remove();
+        }
+    //Click to Enter
+        document.addEventListener("keypress",(event)=>{
+            if(event.which===13){
+                BtnEl.click();
+            }
+        });
+   </script>
+</body>
+</html>
+<!-- if(event.key==="Enter"){
+    event.preventDefault();
+    BtnEl.click();
+} -->
